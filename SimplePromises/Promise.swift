@@ -50,7 +50,7 @@ class Promise<T> {
 
         let resolve = { (promise: Promise<T>) in
 
-            self.appendCallback({ (value: T) in
+            promise.appendCallback({ (value: T) in
                 self.fulfill(value)
             })
             
