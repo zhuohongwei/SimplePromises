@@ -10,6 +10,8 @@
 		9A5258C71C6896FB004898F1 /* SimplePromises.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5258C61C6896FB004898F1 /* SimplePromises.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A5258CE1C6896FB004898F1 /* SimplePromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5258C31C6896FB004898F1 /* SimplePromises.framework */; };
 		9A5258D31C6896FC004898F1 /* SimplePromisesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5258D21C6896FC004898F1 /* SimplePromisesTests.swift */; };
+		9A5258DE1C689710004898F1 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5258DD1C689710004898F1 /* Promise.swift */; };
+		9A5258DF1C689713004898F1 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5258DD1C689710004898F1 /* Promise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 		9A5258CD1C6896FB004898F1 /* SimplePromisesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplePromisesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5258D21C6896FC004898F1 /* SimplePromisesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePromisesTests.swift; sourceTree = "<group>"; };
 		9A5258D41C6896FC004898F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A5258DD1C689710004898F1 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			children = (
 				9A5258C61C6896FB004898F1 /* SimplePromises.h */,
 				9A5258C81C6896FB004898F1 /* Info.plist */,
+				9A5258DD1C689710004898F1 /* Promise.swift */,
 			);
 			path = SimplePromises;
 			sourceTree = "<group>";
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5258DE1C689710004898F1 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5258D31C6896FC004898F1 /* SimplePromisesTests.swift in Sources */,
+				9A5258DF1C689713004898F1 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +314,7 @@
 		9A5258D81C6896FC004898F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +325,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuohongwei.SimplePromises;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		9A5258D91C6896FC004898F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
