@@ -46,26 +46,15 @@ class Promise<T> {
         }
     }
 
-    init(resolver: (resolve: Promise<T> -> (), reject: ErrorType -> ()) throws -> () ) {
+    init(promise: Promise<T>) {
 
-        let resolve = { (promise: Promise<T>) in
+        promise.appendCallback({ (value: T) in
+            self.fulfill(value)
+        })
 
-            promise.appendCallback({ (value: T) in
-                self.fulfill(value)
-            })
-            
-        }
-
-        let reject = { (error: ErrorType) in
+        promise.appendCallback({ (error: ErrorType) in
             self.reject(error)
-        }
-
-        do {
-            try resolver(resolve: resolve, reject: reject)
-
-        } catch {
-            self.reject(error)
-        }
+        })
     }
 
     private func fulfill(value: T) {
@@ -206,9 +195,7 @@ class Promise<T> {
     }
     
     class func resolve(promise: Promise<T>) -> Promise<T> {
-        return Promise(resolver: { (resolve, reject) -> () in
-            resolve(promise)
-        })
+        return Promise(promise: promise)
     }
     
     class func reject(error: ErrorType) -> Promise<T> {
@@ -216,5 +203,5 @@ class Promise<T> {
             reject(error)
         })
     }
-    
+
 }
